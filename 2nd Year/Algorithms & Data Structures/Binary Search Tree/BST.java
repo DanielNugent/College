@@ -245,7 +245,6 @@ public class BST<Key extends Comparable<Key>, Value> {
 		return output;
 	}
 
-	// Auxiliary methods - Adapted from V.Koutavas lecture slides. (from deleteMin and min to deleteMax and max)
 	private Node deleteMax(Node node) {
 		if (node.right == null)
 			return node.left;
