@@ -1,0 +1,22 @@
+Creating thread 0
+Creating thread 1
+
+0: Hello World, from nugentd2!
+Creating thread 2
+
+1: Hello World, from nugentd2!
+Creating thread 3
+
+2: Hello World, from nugentd2!
+Creating thread 4
+
+3: Hello World, from nugentd2!
+Creating thread 5
+
+4: Hello World, from nugentd2!
+
+5: Hello World, from nugentd2!
+
+All threads done by nugentd2, x = 5
+
+Process finished with exit code 0
