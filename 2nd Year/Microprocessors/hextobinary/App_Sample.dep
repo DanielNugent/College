@@ -1,0 +1,4 @@
+Dependencies for Project 'App', Target 'Sample': (DO NOT MODIFY !)
+CompilerVersion: 5060750::V5.06 update 6 (build 750)::ARMCC
+F (.\App.s)(0x5E4AA07B)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 529"--list .\listings\app.lst --xref -o .\app.o --depend .\app.d)
+F (.\EA-LPC2138-EDU-ASM.lib)(0x5E3FE584)()
