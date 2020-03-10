@@ -1,22 +1,10 @@
 #define STONES 5
-/* the success condition */
-/*#define success (\
-    ((frogs[1]==4) && \
- (frogs[2]==5) && \
- (frogs[3]==1) && \
- (frogs[4]==2)) ||\
-  ((frogs[1]==5) && \ 
-  (frogs[2]==4) && \
-  (frogs[3]==1) && \
-  (frogs[4]==2)) \
-)*/
 
 mtype frogsMoved[STONES];
 mtype frogs[STONES]; //frogs[0] = EMPTY SPOT location, 
 //frogs[1] and frogs[2] are right to left moving (location)
 //and frogs[3] and frogs[4] are left to right moving (location)
 // 3 
-//ltl { []!success }
 
 proctype moveLeft(byte at) {
 end:do
@@ -103,11 +91,6 @@ atomic{
     frogs[2] = 2;
     frogs[3] = 4;
     frogs[4] = 5;
-    frogsMoved[0] = 0;
-    frogsMoved[1] = 0;
-    frogsMoved[2] = 0;
-    frogsMoved[3] = 0;
-    frogsMoved[4] = 0;
   printf("EMPTY %d, FROG1@%d, FROG2@%d, FROG3@%d, FROG4@%d\n", frogs[0], frogs[1], frogs[2], frogs[3], frogs[4]);
 }
   atomic{
