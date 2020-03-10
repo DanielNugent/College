@@ -1,7 +1,8 @@
 # Implementation of various common sorting algorithms comparing their speeds
 Results
 
-```                 | Insertion | Selection | Merge Rec | Merge It | Quicksort |
+```                 
+                    | Insertion | Selection | Merge Rec | Merge It | Quicksort |
 10 random           |  0.0049ms |  0.8162ms | 0.0122ms  | 0.0452ms | 0.0088ms  |
 100 random          |  0.046ms  |  0.0795ms | 0.0559ms  | 0.039ms  | 0.0413ms  | 
 1000 random         |  1.9078ms |  5.6079ms | 0.6218ms  | 0.7361ms | 0.7039ms  |
