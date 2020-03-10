@@ -1,4 +1,4 @@
-# Implementation of a basic cpu
+# Implementation of a CPU (Similar to a microprocessor)
 Language: VHDL
 
 
