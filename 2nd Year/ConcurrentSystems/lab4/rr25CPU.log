@@ -1,0 +1,69 @@
+
+	Welcome to the xv6 Scheduler Simulator!
+
+PROCESS 0 RUNNABLE 'P_0' prio: 42
+ CPU
+ CPU
+ CPU
+ CPU
+ CPU
+ EXIT
+PROCESS 1 RUNNABLE 'P_1' prio: 42
+ CPU
+ CPU
+ CPU
+ CPU
+ CPU
+ EXIT
+PROCESS 2 RUNNABLE 'P_2' prio: 42
+ CPU
+ CPU
+ CPU
+ CPU
+ CPU
+ EXIT
+PROCESS 3 RUNNABLE 'P_3' prio: 42
+ CPU
+ CPU
+ CPU
+ CPU
+ CPU
+ EXIT
+PROCESS 4 RUNNABLE 'P_4' prio: 42
+ CPU
+ CPU
+ CPU
+ CPU
+ CPU
+ EXIT
+RUN: P_0 doing CPU
+RUN: P_1 doing CPU
+RUN: P_2 doing CPU
+RUN: P_3 doing CPU
+RUN: P_4 doing CPU
+RUN: P_0 doing CPU
+RUN: P_1 doing CPU
+RUN: P_2 doing CPU
+RUN: P_3 doing CPU
+RUN: P_4 doing CPU
+RUN: P_0 doing CPU
+RUN: P_1 doing CPU
+RUN: P_2 doing CPU
+RUN: P_3 doing CPU
+RUN: P_4 doing CPU
+RUN: P_0 doing CPU
+RUN: P_1 doing CPU
+RUN: P_2 doing CPU
+RUN: P_3 doing CPU
+RUN: P_4 doing CPU
+RUN: P_0 doing CPU
+RUN: P_1 doing CPU
+RUN: P_2 doing CPU
+RUN: P_3 doing CPU
+RUN: P_4 doing CPU
+RUN: P_0 doing EXIT
+RUN: P_1 doing EXIT
+RUN: P_2 doing EXIT
+RUN: P_3 doing EXIT
+RUN: P_4 doing EXIT
+No RUNNABLE process!
