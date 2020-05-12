@@ -15,7 +15,13 @@ inline Input(n) {
 active proctype FinalFA() {
   byte h;
   byte i[LEN];
-  Input(0); Input(1); Input(2); Input(3); i[4] = '.';
+  if
+  ::i[0]='.'
+  ::Input(0); i[1] = '.'
+  ::Input(0); Input(1); i[2] = '.'
+  ::Input(0); Input(1); Input(2); i[3] = '.'
+  ::Input(0); Input(1); Input(2); Input(3); i[4] = '.'
+  fi;
 q0: if
     :: i[h] == 'a'  -> printf("@TRANS q0 a q1\n"); h++; goto q1;
     :: i[h] == 'a'  -> printf("@TRANS q0 a q2\n"); h++; goto q2;
