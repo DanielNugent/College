@@ -1,10 +1,6 @@
 {- butrfeld Andrew Butterfield -}
 module Ex02 where
 
-name, idno, username :: String
-name      =  "Daniel Nugent"  -- replace with your name
-idno      =  "18326304"    -- replace with your student id
-username  =  "nugentd2"   -- replace with your TCD username
 
 
 declaration -- do not modify this
