@@ -1,5 +1,5 @@
 const GITHUB_URL = "https://api.github.com";
-const GITHUB_API_KEY = "01db1d3d8db30af2ecaa974ec4e6527a83dd782f";
+const GITHUB_API_KEY = "";
 const inputError = document.querySelector(".input-error");
 const input = document.querySelector(".username-input");
 const searchButton = document.querySelector(".username-button");
