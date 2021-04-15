@@ -1,0 +1,21 @@
+System: 
+AMD Ryzen 5 3600 @4.1GHz 6C/12T
+16GB DDR4 3200Mhz
+
+The approach used to calculate the time was to do 5 runs and get the average speed across those runs. I would have done it more times but the
+base amount of time required to complete one run of pascal(30, 20) was about ~35 seconds so I didn't want to waste too much time. 
+Accuracy is very important and my results were within 5% between runs so I am very comfident that it was accurately measured. I close all other
+programs on my computer while running it to get consistent results. Analysing the results, its no surpise to see that the more registers we have,
+the faster our program runs. This is because the number of times we encounter overflows and underflows is reduced. 
+6 reg = 36.6s
+8 reg = 35.9s
+16 reg = 35.5s
+16 reg modified = 37s
+
+If we compare the modified (one register window empty for overflow) output with the unmodified one, we can see that the unmodified method works 
+better and results not only in faster time to run, but significantly less overflows and underflows. In the modified we get 58,650
+overflows with 16 registers and in the unmodified version we get 30,826 overflows and faster running time. This occurs because we ave able
+to utlize all of the register windows and in the modified version get access to one less. This occurs across the board but I will only use 
+the variant with 16 register windows for briefness purposes.
+
+The screenshots show the answers and the running time of each method.

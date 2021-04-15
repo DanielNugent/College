@@ -1,0 +1,50 @@
+Daniel Nugent
+
+1 128 byte 1-way cache with 16 bytes per line (direct mapped)
+Hits: 6
+Misses: 22
+
+2. 128 byte 2-way set associative cache with 16 bytes per line
+Hits: 10
+Misses: 18
+
+3. 128 byte 4-way set associative cache with 16 bytes per line
+Hits: 12
+Misses: 16
+ 
+4. 128 byte 8-way associative cache with 16 bytes per line (fully associative)
+Hits: 12
+Misses: 16
+
+
+2. MP = 100 clock cycles
+   CPI = 2 clock cycles
+   Instruction miss rate = 0.02
+   Data access cache miss rate = 0.04
+   Rate of instructions containing data r/w = 0.36
+   = Ic(2 + (0.02+(0.36*0.04))(100))T
+   = 5.44IcT
+   vs cache that never miss
+   = Ic(2+0)T
+   = 2IcT
+   5.44/2 = 2.72 times faster
+
+3. (i)  Time for miss is 2.5+50+(15*5) = 127.5ns  (i don't know if you
+   (ii) 
+     Avg Access time is ((0.95 * 2.5)+(0.05 * TimeForMiss))
+     ((0.95 * 2.5)+(0.05 * 127.5)) = 8.75ns
+     Time for miss (128 bytes) is 2.5+50+(31*5) = 207.5ns  
+     Avg Access time is ((0.97 * 2.5)+(0.03 * TimeForMiss))
+     ((0.97 * 2.5)+(0.03 * 207.5)) = 8.65ns  
+     So 128 bytes is 0.1ns faster per average memory access
+
+4. (i) 5 clock cycles (1+4)
+   (ii) 20 clock cycles (1*4 + 4*4)
+   (iii) 8 clock cycles ((1+4) + 1 + 1 + 1)
+
+   
+
+
+
+
+
