@@ -1,0 +1,91 @@
+s --> [].
+s --> a,s,a.
+s --> c,s,c.
+s --> a,b,a.
+s --> c,b,c.
+a --> [1].
+b --> [2].
+c --> [0].
+
+nbd -->  h(Col1,Nat1,Pet1), h(Col2,Nat2,Pet2), h(Col3,Nat3,Pet3),
+			{Col1\=Col2}, {Col2\=Col3}, {Col1\=Col3},
+			{Nat1\=Nat2}, {Nat2\=Nat3}, {Nat1\=Nat3},
+			{Pet1\=Pet2}, {Pet2\=Pet3}, {Pet1\=Pet3}.
+
+h(Colour, Nation, Pet) --> [h(Colour, Nation, Pet)], 
+    {lex(Colour, col)}, {lex(Nation, nat)}, {lex(Pet, pet)}.
+
+lex(red, col).
+lex(blue, col). 
+lex(green, col).
+
+lex(english, nat).
+lex(japanese, nat).
+lex(spanish, nat).
+
+lex(snail, pet).
+lex(jaguar, pet).
+lex(zebra, pet).
+
+
+final(q3).
+accept(L) :- steps(q0,L,F), final(F).
+steps(Q,[],Q).
+steps(Q,[H|T],Q2) :- tran(Q,H,Qn), steps(Qn,T,Q2).
+tran(q0, 0, q0).
+tran(q0, 1, q0).
+tran(q0, 1, q1).
+tran(q1, 0, q2).
+tran(q1, 1, q2).
+tran(q2, 0, q3).
+tran(q2, 1, q3).
+tran(q3, 0, q4).
+tran(q3, 1, q4).
+
+
+q0 --> q0a, q1, q2, q3.
+q0a --> [0].
+q0a --> [1].
+q0a --> [0], q0a.
+q0a --> [1], q0a.
+q1 --> [1].
+q2 --> [0].
+q2 --> [1].
+q3 --> [0].
+q3 --> [1].
+
+l3(String, Numeral) :- q0b(Numeral, String, []).
+q0b(succ(succ(succ(X)))) --> q0c(X), q1, q2, q3.
+q0c(succ(0)) --> [0].
+q0c(succ(0)) --> [1].
+q0c(succ(X)) --> [0], q0c(X).
+q0c(succ(X)) --> [1], q0c(X).
+q1a --> [1].
+q2a --> [0].
+q2a --> [1].
+q3a --> [0].
+q3a --> [1].
+
+%s --> a(N), b(K), c(M), {K is N+M}.
+%a(0) --> [].
+%a(N) --> [a], a(Nm), {N is Nm+1}. 
+%b(0) --> []. 
+%b(K) --> [b], b(Km), {K is Km+1}.
+%c(0) --> [].
+%c(M) --> [c], c(Mm), {M is Mm+1}.
+
+%sord(L, X) :- shelper(L, 0, 0, 0, X).
+%shelper([], N, K, M, []) :- 
+    K is (N+M).
+%shelper([a|L], N, K, M, X) :-
+    Nn is N+1,
+    shelper(L, Nn, K, M, X).
+
+%shelper([b|L], N, K, M, X) :-
+    Kn is K+1,
+    shelper(L, N, Kn, M, X).
+
+shelper([c|L], N, K, M, X) :-
+    Mn is M+1,
+    shelper(L, N, K, Mn, X).
+

@@ -1,0 +1,65 @@
+%Increment
+incr(null,f1(null)).              %base case
+incr(f1(X),f0(Y)) :- incr(X,Y).   %f1(X) -> f0(y)
+incr(f0(X),f1(X)).                %f0(X) -> f1(X)
+
+%decrement
+decr(f1(null), null).
+decr(f0(X), f1(Y)) :- decr(X, Y).
+decr(f1(X), f0(X)).
+
+%Valid pterms
+legal(f0(null)).                  %base case
+legal(Y) :- legal(X), incr(X,Y).  %recursive
+
+
+incR(X,Y):- legal(X), incr(X,Y).  %if legal, increment
+
+add(f0(null), X, X). %base case
+add(X, Y, Z) :- decr(X, A), incr(Y, B), add(A, B, Z). %subtract from X, put in Y
+
+
+mult(f0(null), _ , f0(null)). %base case X 0
+mult(_, f0(null), f0(null)). %base case X 0
+mult(f1(null), X, X). %base case X 1
+mult(X, f1(null), X). %base case X 1
+mult(X, Y, Z) :- decr(X, A), mult2(A, Y, Y, Z). %case utlity func with acc
+mult2(f0(null), _, Acc, Z) :- mult(f1(null), Acc, Z).
+mult2(W, X, Acc, Z) :- decr(W, A), add(Acc, X, Y), mult2(A, X, Y, Z).
+
+%Reverse
+revers(P,RevP) :- revers(P, null, RevP).     
+revers(null,Y, Y).                      
+revers(f0(X), T, Y) :- revers(X,f0(T), Y). 
+revers(f1(X), T, Y) :- revers(X,f1(T), Y). 
+
+%normalize
+normalize(null,f0(null)). %base case
+normalize(f0(null),f0(null)). %base case
+normalize(X, Y) :- revers(X, Z), normalize2(Z, A), revers(A, Y).
+normalize2(f1(X), f1(X)). %f1(X) -> f1(X).
+normalize2(f0(X), Y) :- normalize2(X, Y). %f0(X) -> X
+
+% test add inputting numbers N1 and N2
+testAdd(N1,N2,T1,T2,Sum,SumT) :- numb2pterm(N1,T1), numb2pterm(N2,T2),
+add(T1,T2,SumT), pterm2numb(SumT,Sum).
+
+% test mult inputting numbers N1 and N2
+testMult(N1,N2,T1,T2,N1N2,T1T2) :- numb2pterm(N1,T1), numb2pterm(N2,T2),
+mult(T1,T2,T1T2), pterm2numb(T1T2,N1N2).
+% test revers inputting list L
+testRev(L,Lr,T,Tr) :- ptermlist(T,L), revers(T,Tr), ptermlist(Tr,Lr).
+% test normalize inputting list L
+testNorm(L,T,Tn,Ln) :- ptermlist(T,L), normalize(T,Tn), ptermlist(Tn,Ln).
+% make a pterm T from a number N numb2term(+N,?T)
+numb2pterm(0,f0(null)).
+numb2pterm(N,T) :- N>0, M is N-1, numb2pterm(M,Temp), incr(Temp,T).
+% make a number N from a pterm T pterm2numb(+T,?N)
+pterm2numb(null,0).
+pterm2numb(f0(X),N) :- pterm2numb(X,M), N is 2*M.
+pterm2numb(f1(X),N) :- pterm2numb(X,M), N is 2*M +1.
+% reversible ptermlist(T,L)
+ptermlist(null,[]).
+ptermlist(f0(X),[0|L]) :- ptermlist(X,L).
+ptermlist(f1(X),[1|L]) :- ptermlist(X,L).
+
